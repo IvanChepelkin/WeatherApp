@@ -1,7 +1,9 @@
-package com.example.user.weatherapp;
+package com.example.user.weatherapp.view;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.user.weatherapp.R;
 
 public class MainActivity extends AppCompatActivity {
 
