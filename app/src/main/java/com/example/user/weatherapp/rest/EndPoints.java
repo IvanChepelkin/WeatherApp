@@ -10,6 +10,6 @@ import retrofit2.http.Path;
 
 public interface EndPoints {
     @GET("/data/2.5/weather?q={city}&units=metric")
-    Flowable<List<WeatherModel>> getWeatherFromServer(
+    Flowable<WeatherModel> getWeatherFromServer(
             @Path("city") String city);
 }

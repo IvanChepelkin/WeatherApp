@@ -21,7 +21,7 @@ public class NetApiClient {
     private NetApiClient() {
     }
 
-    public Flowable<List<WeatherModel>> getWeather(String city) {
+    public Flowable<WeatherModel> getWeather(String city) {
         return netApi.getWeatherFromServer(city)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io());
