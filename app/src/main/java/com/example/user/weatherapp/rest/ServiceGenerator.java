@@ -1,6 +1,8 @@
 package com.example.user.weatherapp.rest;
 
 import com.example.user.weatherapp.BuildConfig;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -10,10 +12,12 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ServiceGenerator {
 
+    private Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
+
     public <S> S createService(Class<S> serviceClass) {
         return new Retrofit.Builder()
                 .baseUrl("https://api.openweathermap.org")
-                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create(gson))
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .client(getClient()).build().create(serviceClass);
     }

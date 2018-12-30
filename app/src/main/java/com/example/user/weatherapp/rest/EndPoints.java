@@ -1,15 +1,12 @@
 package com.example.user.weatherapp.rest;
 
-import com.example.user.weatherapp.model.WeatherModel;
-
-import java.util.List;
+import com.example.user.weatherapp.model.Main;
+import com.example.user.weatherapp.model.Weather;
 
 import io.reactivex.Flowable;
 import retrofit2.http.GET;
-import retrofit2.http.Path;
 
 public interface EndPoints {
-    @GET("/data/2.5/weather?q={city}&units=metric")
-    Flowable<WeatherModel> getWeatherFromServer(
-            @Path("city") String city);
+    @GET("/data/2.5/weather?q=Moscow&units=metric&appid=f3f2763fe63803beef4851d6365c83bc")
+    Flowable<Weather>getWeatherFromServer();
 }

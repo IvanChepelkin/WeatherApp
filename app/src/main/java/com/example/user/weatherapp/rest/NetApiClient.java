@@ -1,8 +1,7 @@
 package com.example.user.weatherapp.rest;
 
-import com.example.user.weatherapp.model.WeatherModel;
-
-import java.util.List;
+import com.example.user.weatherapp.model.Main;
+import com.example.user.weatherapp.model.Weather;
 
 import io.reactivex.Flowable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -21,8 +20,8 @@ public class NetApiClient {
     private NetApiClient() {
     }
 
-    public Flowable<WeatherModel> getWeather(String city) {
-        return netApi.getWeatherFromServer(city)
+    public Flowable<Weather> getWeather() {
+        return netApi.getWeatherFromServer()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io());
     }

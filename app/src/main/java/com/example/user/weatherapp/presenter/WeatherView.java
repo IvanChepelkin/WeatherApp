@@ -1,14 +1,13 @@
 package com.example.user.weatherapp.presenter;
 
 import com.arellomobile.mvp.MvpView;
-import com.example.user.weatherapp.model.WeatherModel;
-
-import java.util.List;
+import com.example.user.weatherapp.model.Main;
+import com.example.user.weatherapp.model.Weather;
 
 public interface WeatherView extends MvpView {
     void showError(Throwable e);
 
-    void setWeatherData(WeatherModel repsModels);
+    void setWeatherData(Weather weather);
 
     void startLoad();
 
