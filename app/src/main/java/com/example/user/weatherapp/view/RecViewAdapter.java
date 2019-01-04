@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.user.weatherapp.R;
-import com.example.user.weatherapp.model.Main;
 import com.example.user.weatherapp.model.Weather;
 
 public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.RecViewHolder> {
@@ -17,7 +16,6 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.RecViewH
     public RecViewAdapter(Weather weather) {
         this.weather = weather;
     }
-
 
     @NonNull
     @Override
