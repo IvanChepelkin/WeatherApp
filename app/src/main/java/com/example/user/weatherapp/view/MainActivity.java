@@ -3,6 +3,7 @@ package com.example.user.weatherapp.view;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -15,6 +16,7 @@ import com.example.user.weatherapp.presenter.WeatherView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class MainActivity extends MvpAppCompatActivity implements WeatherView {
     @InjectPresenter
@@ -23,6 +25,9 @@ public class MainActivity extends MvpAppCompatActivity implements WeatherView {
     EditText cityName;
     @BindView(R.id.recView)
     RecyclerView recView;
+//    @BindView(R.id.ok)
+//    Button ok;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +35,12 @@ public class MainActivity extends MvpAppCompatActivity implements WeatherView {
         setContentView(R.layout.activity_main);
         // Привязываем наши вюшки к этому классу
         ButterKnife.bind(this);
+    }
+
+    @OnClick(R.id.ok)
+    void onSaveClick(){
+        presenter.loadData(cityName.getText().toString());
+
     }
 
     @Override

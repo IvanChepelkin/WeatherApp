@@ -13,7 +13,6 @@ public class Presenter extends MvpPresenter<WeatherView> implements Subscriber<W
     @Override
     public void attachView(WeatherView view) {
         super.attachView(view);
-        loadData();
     }
 
     @Override
@@ -37,8 +36,8 @@ public class Presenter extends MvpPresenter<WeatherView> implements Subscriber<W
 
     }
 
-    private void loadData() {
+    public void loadData(String city) {
         getViewState().startLoad();
-        NetApiClient.getInstance().getWeather().subscribe(this);
+        NetApiClient.getInstance().getWeather(city).subscribe(this);
     }
 }
