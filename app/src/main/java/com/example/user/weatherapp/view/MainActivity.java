@@ -3,14 +3,13 @@ package com.example.user.weatherapp.view;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.arellomobile.mvp.MvpAppCompatActivity;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.example.user.weatherapp.R;
-import com.example.user.weatherapp.model.Weather;
+import com.example.user.weatherapp.model.Example;
 import com.example.user.weatherapp.presenter.Presenter;
 import com.example.user.weatherapp.presenter.WeatherView;
 
@@ -25,9 +24,6 @@ public class MainActivity extends MvpAppCompatActivity implements WeatherView {
     EditText cityName;
     @BindView(R.id.recView)
     RecyclerView recView;
-//    @BindView(R.id.ok)
-//    Button ok;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,10 +45,10 @@ public class MainActivity extends MvpAppCompatActivity implements WeatherView {
     }
 
     @Override
-    public void setWeatherData(Weather weather) {
+    public void setWeatherData(Example example) {
         recView.setLayoutManager(new LinearLayoutManager(this));
         recView.setHasFixedSize(false);
-        RecViewAdapter recViewAdapter = new RecViewAdapter(weather);
+        RecViewAdapter recViewAdapter = new RecViewAdapter(example);
         recView.setAdapter(recViewAdapter);
     }
 

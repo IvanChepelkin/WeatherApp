@@ -8,13 +8,15 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.user.weatherapp.R;
-import com.example.user.weatherapp.model.Weather;
+import com.example.user.weatherapp.model.Example;
 
 public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.RecViewHolder> {
-    private Weather weather;
+    private WeatherDay weatherDay;
+    private Example example;
 
-    public RecViewAdapter(Weather weather) {
-        this.weather = weather;
+    public RecViewAdapter(Example example) {
+        this.weatherDay = weatherDay;
+        this.example = example;
     }
 
     @NonNull
@@ -26,22 +28,26 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.RecViewH
 
     @Override
     public void onBindViewHolder(@NonNull RecViewHolder recViewHolder, int i) {
-        String temper = String.valueOf(weather.getMain().getTemp());
-        String press = String.valueOf(weather.getMain().getPressure());
-        String humi = String.valueOf(weather.getMain().getHumidity());
-        String tempMa = String.valueOf(weather.getMain().getTempMax());
-        String tempMi = String.valueOf(weather.getMain().getTempMin());
+//        String temper = String.valueOf(weatherDay.getMain().getTemp());
+//        String press = String.valueOf(weatherDay.getMain().getPressure());
+//        String humi = String.valueOf(weatherDay.getMain().getHumidity());
+//        String tempMa = String.valueOf(weatherDay.getMain().getTempMax());
+//        String tempMi = String.valueOf(weatherDay.getMain().getTempMin());
+
+        String temper = String.valueOf(Math.round(example.getList().get(i).getMain().getTemp()));
+        String press = String.valueOf(Math.round((example.getList().get(i).getMain().getPressure()*100)/133.32));
+        String humi = String.valueOf(example.getList().get(i).getMain().getHumidity());
 
         recViewHolder.temp.setText(temper);
         recViewHolder.pressure.setText(press);
         recViewHolder.humidity.setText(humi);
-        recViewHolder.tempMax.setText(tempMa);
-        recViewHolder.tempMin.setText(tempMi);
+//        recViewHolder.tempMax.setText(tempMa);
+//        recViewHolder.tempMin.setText(tempMi);
     }
 
     @Override
     public int getItemCount() {
-        return 1;
+        return example.getList().size();
     }
 
     class RecViewHolder extends RecyclerView.ViewHolder {

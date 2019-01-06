@@ -5,38 +5,60 @@ import com.google.gson.annotations.SerializedName;
 
 public class Main {
 
-    @SerializedName("temp")
-    @Expose
-    private float temp;
-    @SerializedName("pressure")
-    @Expose
-    private int pressure;
-    @SerializedName("humidity")
-    @Expose
-    private int humidity;
-    @SerializedName("temp_min")
-    @Expose
-    private int tempMin;
-    @SerializedName("temp_max")
-    @Expose
-    private int tempMax;
+        @SerializedName("temp")
+        @Expose
+        private float temp;
+        @SerializedName("temp_min")
+        @Expose
+        private float tempMin;
+        @SerializedName("temp_max")
+        @Expose
+        private float tempMax;
+        @SerializedName("pressure")
+        @Expose
+        private float pressure;
+        @SerializedName("sea_level")
+        @Expose
+        private float seaLevel;
+        @SerializedName("grnd_level")
+        @Expose
+        private float grndLevel;
+        @SerializedName("humidity")
+        @Expose
+        private int humidity;
+        @SerializedName("temp_kf")
+        @Expose
+        private float tempKf;
 
-    public float getTemp() {
-        return temp;
-    }
-    public int getPressure() {
-        return pressure;
-    }
+        public float getTemp() {
+            return temp;
+        }
 
-    public int getHumidity() {
-        return humidity;
-    }
+        public float getTempMin() {
+            return tempMin;
+        }
 
-    public int getTempMin() {
-        return tempMin;
-    }
+        public float getTempMax() {
+            return tempMax;
+        }
 
-    public int getTempMax() {
-        return tempMax;
-    }
+        public float getPressure() {
+            return pressure;
+        }
+
+        public float getSeaLevel() {
+            return seaLevel;
+        }
+
+        public float getGrndLevel() {
+            return grndLevel;
+        }
+
+        public int getHumidity() {
+            return humidity;
+        }
+
+        public float getTempKf() {
+            return tempKf;
+        }
 }

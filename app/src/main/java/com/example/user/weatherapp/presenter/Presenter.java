@@ -2,14 +2,14 @@ package com.example.user.weatherapp.presenter;
 
 import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
-import com.example.user.weatherapp.model.Weather;
+import com.example.user.weatherapp.model.Example;
 import com.example.user.weatherapp.rest.NetApiClient;
 
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 
 @InjectViewState
-public class Presenter extends MvpPresenter<WeatherView> implements Subscriber<Weather> {
+public class Presenter extends MvpPresenter<WeatherView> implements Subscriber<Example> {
     @Override
     public void attachView(WeatherView view) {
         super.attachView(view);
@@ -21,8 +21,8 @@ public class Presenter extends MvpPresenter<WeatherView> implements Subscriber<W
     }
 
     @Override
-    public void onNext(Weather weather) {
-        getViewState().setWeatherData(weather);
+    public void onNext(Example example) {
+        getViewState().setWeatherData(example);
     }
 
     @Override
