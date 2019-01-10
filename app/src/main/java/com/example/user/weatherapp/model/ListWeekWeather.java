@@ -14,7 +14,7 @@ public class ListWeekWeather {
     private Main main;
     @SerializedName("weatherDay")
     @Expose
-    private List<WeatherDay> weather = null;
+    private List<Weather> weather = null;
 
     public int getDt() {
         return dt;
@@ -28,7 +28,7 @@ public class ListWeekWeather {
         return main;
     }
 
-    public List<WeatherDay> getWeather() {
+    public List<Weather> getWeather() {
         return weather;
     }
 }

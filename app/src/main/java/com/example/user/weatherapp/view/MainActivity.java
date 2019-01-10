@@ -1,5 +1,6 @@
 package com.example.user.weatherapp.view;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -46,9 +47,10 @@ public class MainActivity extends MvpAppCompatActivity implements WeatherView {
 
     @Override
     public void setWeatherData(Example example) {
+        Typeface typeWeather = Typeface.createFromAsset(getAssets(),"fonts/weathericons-regular-webfont.ttf");
         recView.setLayoutManager(new LinearLayoutManager(this));
         recView.setHasFixedSize(false);
-        RecViewAdapter recViewAdapter = new RecViewAdapter(example);
+        RecViewAdapter recViewAdapter = new RecViewAdapter(example,typeWeather);
         recView.setAdapter(recViewAdapter);
     }
 

@@ -36,3 +36,32 @@ public class Example {
     }
 
 }
+
+//  {
+//        "cod":"200",
+//        "message":0.004,
+//        "cnt":7,
+//        "list":[
+//           {
+//               "dt":1546765200,
+//               "main":{
+//                   "temp":-7.09,
+//                   "temp_min":-8.24,
+//                   "temp_max":-7.09,
+//                   "pressure":1012.55,
+//                   "sea_level":1033.85,
+//                   "grnd_level":1012.55,
+//                   "humidity":89,
+//                   "temp_kf":1.14
+//           },
+//          "weather":[
+//             {
+//                   "id":600,
+//                   "main":"Snow",
+//                   "description":"light snow",
+//                   "icon":"13d"
+//             }
+//           ]
+//         }
+//       ]
+//  }
