@@ -5,6 +5,6 @@ public class ModelView {
     private String city;
     private int id;
     private float temp;
-    private float homidity;
+    private float humidity;
     
 }
