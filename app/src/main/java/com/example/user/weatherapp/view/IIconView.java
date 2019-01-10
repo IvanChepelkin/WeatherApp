@@ -2,6 +2,6 @@ package com.example.user.weatherapp.presenter;
 
 import com.arellomobile.mvp.MvpView;
 
-public interface IconView extends MvpView {
+public interface IIconView extends MvpView {
     void setIcons();
 }
