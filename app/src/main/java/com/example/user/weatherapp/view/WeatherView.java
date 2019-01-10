@@ -18,7 +18,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MainActivity extends MvpAppCompatActivity implements WeatherView {
+public class WeatherView extends MvpAppCompatActivity implements IWeatherView {
     @InjectPresenter
     Presenter presenter;
     @BindView(R.id.cityName)
