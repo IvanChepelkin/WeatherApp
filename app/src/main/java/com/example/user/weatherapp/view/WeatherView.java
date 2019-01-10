@@ -39,7 +39,33 @@ public class WeatherView extends MvpAppCompatActivity implements IWeatherView {
         presenter.loadData(cityName.getText().toString());
 
     }
-
+// В идеале было бы вынести соответствие интерфейсу в отдельное расширение
+// Что-то подобное этому
+// public class WeatherView extends MvpAppCompatActivity {
+//     // переменные
+//     // методы
+//     void onCreate(...) {
+//         ...
+//     }
+//     void onSaveClick() {
+//         ...
+//     }
+// }
+//
+// public class WeatherView implements IWeatherView {
+//     void showError(Throwable e) {
+//         ...
+//     }
+//     void setWeatherData(Example example) {
+//         ...
+//     }
+//     void startLoad() {
+//         ...
+//     }
+//     void finishLoad() {
+//         ...
+//     }
+// }
     @Override
     public void showError(Throwable e) {
         Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show();
