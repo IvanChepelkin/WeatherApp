@@ -10,7 +10,7 @@ import android.widget.Toast;
 import com.arellomobile.mvp.MvpAppCompatActivity;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.example.user.weatherapp.R;
-import com.example.user.weatherapp.model.Example;
+import com.example.user.weatherapp.model_presenter.Example;
 import com.example.user.weatherapp.presenter.Presenter;
 import com.example.user.weatherapp.presenter.WeatherView;
 

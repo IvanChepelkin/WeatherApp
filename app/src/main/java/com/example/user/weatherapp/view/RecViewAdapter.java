@@ -8,12 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.arellomobile.mvp.MvpAppCompatActivity;
-import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.example.user.weatherapp.R;
-import com.example.user.weatherapp.model.Example;
-import com.example.user.weatherapp.presenter.Presenter;
-import com.example.user.weatherapp.presenter.WeatherView;
+import com.example.user.weatherapp.model_presenter.Example;
 
 public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.RecViewHolder>{
 

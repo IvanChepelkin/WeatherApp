@@ -2,7 +2,7 @@ package com.example.user.weatherapp.presenter;
 
 import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
-import com.example.user.weatherapp.model.Example;
+import com.example.user.weatherapp.model_presenter.Example;
 import com.example.user.weatherapp.rest.NetApiClient;
 
 import org.reactivestreams.Subscriber;

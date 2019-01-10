@@ -1,6 +1,6 @@
 package com.example.user.weatherapp.rest;
 
-import com.example.user.weatherapp.model.Example;
+import com.example.user.weatherapp.model_presenter.Example;
 
 import io.reactivex.Flowable;
 import io.reactivex.android.schedulers.AndroidSchedulers;

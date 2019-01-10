@@ -1,7 +1,7 @@
 package com.example.user.weatherapp.presenter;
 
 import com.arellomobile.mvp.MvpView;
-import com.example.user.weatherapp.model.Example;
+import com.example.user.weatherapp.model_presenter.Example;
 
 public interface WeatherView extends MvpView {
 
