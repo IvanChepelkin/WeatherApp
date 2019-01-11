@@ -8,16 +8,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.arellomobile.mvp.MvpAppCompatActivity;
+import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.example.user.weatherapp.R;
-import com.example.user.weatherapp.model_presenter.Example;
+import com.example.user.weatherapp.model_view.ModelView;
+import com.example.user.weatherapp.presenter.WeatherView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.RecViewHolder>{
 
-    private Example example;
+    private List <ModelView> listWeather = new ArrayList<>();
     private Typeface typeWeather;
 
-    public RecViewAdapter(Example example, Typeface typeWeather) {
-        this.example = example;
+    public RecViewAdapter(List<ModelView> listWeather, Typeface typeWeather) {
+        this.listWeather = listWeather;
         this.typeWeather = typeWeather;
     }
 
@@ -36,15 +42,15 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.RecViewH
 //        String tempMa = String.valueOf(weatherDay.getMain().getTempMax());
 //        String tempMi = String.valueOf(weatherDay.getMain().getTempMin());
 
-        String temper = String.valueOf(Math.round(example.getList().get(i).getMain().getTemp()));
-        String press = String.valueOf(Math.round((example.getList().get(i).getMain().getPressure()*100)/133.32));
-        String humi = String.valueOf(example.getList().get(i).getMain().getHumidity());
+        String temper = String.valueOf(Math.round(listWeather.get(i).getTempForView()));
+//        String press = String.valueOf(Math.round((example.getList().get(i).getMain().getPressure()*100)/133.32));
+//        String humi = String.valueOf(example.getList().get(i).getMain().getHumidity());
 
 
 
         recViewHolder.temp.setText(temper);
-        recViewHolder.pressure.setText(press);
-        recViewHolder.humidity.setText(humi);
+//        recViewHolder.pressure.setText(press);
+//        recViewHolder.humidity.setText(humi);
 //       recViewHolder.tempMax.setText(tempMa);
 //       recViewHolder.tempMin.setText(tempMi);
         recViewHolder.weather_icon.setTypeface(typeWeather);
@@ -53,7 +59,7 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.RecViewH
 
     @Override
     public int getItemCount() {
-        return example.getList().size();
+        return listWeather.size();
     }
 
 

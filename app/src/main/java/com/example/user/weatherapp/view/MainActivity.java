@@ -10,9 +10,11 @@ import android.widget.Toast;
 import com.arellomobile.mvp.MvpAppCompatActivity;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.example.user.weatherapp.R;
-import com.example.user.weatherapp.model_presenter.Example;
+import com.example.user.weatherapp.model_view.ModelView;
 import com.example.user.weatherapp.presenter.Presenter;
 import com.example.user.weatherapp.presenter.WeatherView;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -46,11 +48,11 @@ public class MainActivity extends MvpAppCompatActivity implements WeatherView {
     }
 
     @Override
-    public void setWeatherData(Example example) {
+    public void setWeatherData(List<ModelView> listWeather) {
         Typeface typeWeather = Typeface.createFromAsset(getAssets(),"fonts/weathericons-regular-webfont.ttf");
         recView.setLayoutManager(new LinearLayoutManager(this));
         recView.setHasFixedSize(false);
-        RecViewAdapter recViewAdapter = new RecViewAdapter(example,typeWeather);
+        RecViewAdapter recViewAdapter = new RecViewAdapter(listWeather,typeWeather);
         recView.setAdapter(recViewAdapter);
     }
 
