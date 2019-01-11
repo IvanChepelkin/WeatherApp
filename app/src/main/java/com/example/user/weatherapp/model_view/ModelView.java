@@ -3,37 +3,50 @@ package com.example.user.weatherapp.model_view;
 public class ModelView {
 
     private String city;
-    private int id;
-    private float temp;
-    private float homidity;
     private String dat;
+    private int id;
+    private float humidity;
+    private float press;
+    private float temp;
 
-    public ModelView(String city, int id, float temp, float homidity, String dat) {
+    public ModelView(String city, String dat, int id, float humidity, float press, float temp) {
 
         this.city = city;
-        this.id = id;
-        this.temp = temp;
-        this.homidity = homidity;
         this.dat = dat;
+        this.id = id;
+        this.humidity = humidity;
+        this.press = press;
+        this.temp = temp;
+
+
+
     }
 
     public String getCityForView() {
         return city;
     }
 
+    public String getDatForView() {
+        return dat;
+    }
+
     public int getIdForView() {
         return id;
+    }
+
+    public float getHomidityForView() {
+        return humidity;
+    }
+
+    public float getPress() {
+        return press;
     }
 
     public float getTempForView() {
         return temp;
     }
 
-    public float getHomidityForView() {
-        return homidity;
-    }
 
-    public String getDatForView() {
-        return dat;
-    }
+
+
 }

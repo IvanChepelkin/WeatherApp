@@ -47,14 +47,16 @@ public class Presenter extends MvpPresenter<WeatherView> implements Subscriber<E
     }
 
     public void setItems(Example example) {
+
         List <ModelView> listWeather = new ArrayList<>();
 
-        for (int i=0; i <=6; i++) {
-                listWeather.add(new ModelView("Москва",
-                        example.getList().get(i).getWeather().get(i).getId(),
-                        example.getList().get(i).getMain().getTemp(),
+        for (int i=0; i < example.getList().size(); i++) {
+                listWeather.add(new ModelView(example.getCity().getName(),
+                        example.getList().get(i).getDtTxt(),
+                        example.getList().get(i).getWeather().get(0).getId(),
                         example.getList().get(i).getMain().getHumidity(),
-                        "привет"
+                        example.getList().get(i).getMain().getPressure(),
+                        example.getList().get(i).getMain().getTemp()
                         ));
         }
 

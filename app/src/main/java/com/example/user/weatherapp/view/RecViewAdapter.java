@@ -8,18 +8,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.arellomobile.mvp.MvpAppCompatActivity;
-import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.example.user.weatherapp.R;
 import com.example.user.weatherapp.model_view.ModelView;
-import com.example.user.weatherapp.presenter.WeatherView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.RecViewHolder>{
+public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.RecViewHolder> {
 
-    private List <ModelView> listWeather = new ArrayList<>();
+    private List<ModelView> listWeather = new ArrayList<>();
     private Typeface typeWeather;
 
     public RecViewAdapter(List<ModelView> listWeather, Typeface typeWeather) {
@@ -36,25 +33,22 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.RecViewH
 
     @Override
     public void onBindViewHolder(@NonNull RecViewHolder recViewHolder, int i) {
-//        String temper = String.valueOf(weatherDay.getMain().getTemp());
-//        String press = String.valueOf(weatherDay.getMain().getPressure());
-//        String humi = String.valueOf(weatherDay.getMain().getHumidity());
-//        String tempMa = String.valueOf(weatherDay.getMain().getTempMax());
-//        String tempMi = String.valueOf(weatherDay.getMain().getTempMin());
+        String city = listWeather.get(i).getCityForView();
+        String dat = listWeather.get(i).getDatForView();
 
+        String humi = String.valueOf(listWeather.get(i).getHomidityForView());
+        String press = String.valueOf(Math.round((listWeather.get(i).getPress() * 100) / 133.32));
         String temper = String.valueOf(Math.round(listWeather.get(i).getTempForView()));
-//        String press = String.valueOf(Math.round((example.getList().get(i).getMain().getPressure()*100)/133.32));
-//        String humi = String.valueOf(example.getList().get(i).getMain().getHumidity());
 
+        recViewHolder.city.setText(city);
+        recViewHolder.dat.setText(dat);
 
-
-        recViewHolder.temp.setText(temper);
-//        recViewHolder.pressure.setText(press);
-//        recViewHolder.humidity.setText(humi);
-//       recViewHolder.tempMax.setText(tempMa);
-//       recViewHolder.tempMin.setText(tempMi);
         recViewHolder.weather_icon.setTypeface(typeWeather);
         recViewHolder.weather_icon.setText(R.string.weather_cloudy);
+        recViewHolder.humidity.setText(humi);
+        recViewHolder.tempMax.setText(press);
+        recViewHolder.tempMin.setText(temper);
+
     }
 
     @Override
@@ -64,21 +58,23 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.RecViewH
 
 
     class RecViewHolder extends RecyclerView.ViewHolder {
-        private TextView temp;
-        private TextView pressure;
+        private TextView city;
+        private TextView dat;
+        private TextView weather_icon;
         private TextView humidity;
         private TextView tempMax;
         private TextView tempMin;
-        private TextView weather_icon;
+
 
         public RecViewHolder(@NonNull View itemView) {
             super(itemView);
-            temp = itemView.findViewById(R.id.temp);
-            pressure = itemView.findViewById(R.id.pressure);
+            city = itemView.findViewById(R.id.city);
+            dat = itemView.findViewById(R.id.dat);
+            weather_icon = itemView.findViewById(R.id.weather_icon);
             humidity = itemView.findViewById(R.id.humidity);
             tempMax = itemView.findViewById(R.id.tempMax);
             tempMin = itemView.findViewById(R.id.tempMin);
-            weather_icon = itemView.findViewById(R.id.weather_icon);
+
 
         }
     }
