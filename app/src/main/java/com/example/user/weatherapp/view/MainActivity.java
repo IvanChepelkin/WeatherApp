@@ -50,6 +50,7 @@ public class MainActivity extends MvpAppCompatActivity implements WeatherView {
     @Override
     public void setWeatherData(List<ModelView> listWeather) {
         Typeface typeWeather = Typeface.createFromAsset(getAssets(),"fonts/weathericons-regular-webfont.ttf");
+        recView.addItemDecoration(new DividerItemDecoration(getApplicationContext()));
         recView.setLayoutManager(new LinearLayoutManager(this));
         recView.setHasFixedSize(false);
         RecViewAdapter recViewAdapter = new RecViewAdapter(listWeather,typeWeather);

@@ -7,16 +7,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import com.example.user.weatherapp.R;
 import com.example.user.weatherapp.model_view.ModelView;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.RecViewHolder> {
 
-    private List<ModelView> listWeather = new ArrayList<>();
+    private List<ModelView> listWeather;
     private Typeface typeWeather;
 
     public RecViewAdapter(List<ModelView> listWeather, Typeface typeWeather) {
@@ -36,8 +33,8 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.RecViewH
         String city = listWeather.get(i).getCityForView();
         String dat = listWeather.get(i).getDatForView();
 
-        String humi = String.valueOf(listWeather.get(i).getHomidityForView());
-        String press = String.valueOf(Math.round((listWeather.get(i).getPress() * 100) / 133.32));
+        String humi = "Humidity: " + String.valueOf(listWeather.get(i).getHomidityForView())+ " %";
+        String press = "Pressure: " + String.valueOf(Math.round((listWeather.get(i).getPress() * 100) / 133.32)) + " hPa";
         String temper = String.valueOf(Math.round(listWeather.get(i).getTempForView()));
 
         recViewHolder.city.setText(city);
@@ -46,8 +43,8 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.RecViewH
         recViewHolder.weather_icon.setTypeface(typeWeather);
         recViewHolder.weather_icon.setText(R.string.weather_cloudy);
         recViewHolder.humidity.setText(humi);
-        recViewHolder.tempMax.setText(press);
-        recViewHolder.tempMin.setText(temper);
+        recViewHolder.press.setText(press);
+        recViewHolder.temp.setText(temper);
 
     }
 
@@ -62,18 +59,18 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.RecViewH
         private TextView dat;
         private TextView weather_icon;
         private TextView humidity;
-        private TextView tempMax;
-        private TextView tempMin;
+        private TextView press;
+        private TextView temp;
 
 
-        public RecViewHolder(@NonNull View itemView) {
+        private RecViewHolder(@NonNull View itemView) {
             super(itemView);
             city = itemView.findViewById(R.id.city);
             dat = itemView.findViewById(R.id.dat);
             weather_icon = itemView.findViewById(R.id.weather_icon);
             humidity = itemView.findViewById(R.id.humidity);
-            tempMax = itemView.findViewById(R.id.tempMax);
-            tempMin = itemView.findViewById(R.id.tempMin);
+            press = itemView.findViewById(R.id.press);
+            temp = itemView.findViewById(R.id.temp);
 
 
         }
