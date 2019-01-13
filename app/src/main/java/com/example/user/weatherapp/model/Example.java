@@ -1,12 +1,12 @@
 package com.example.user.weatherapp.model;
 
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
 public class Example {
-    @SerializedName("cod")
     @Expose
     private String cod;
     @SerializedName("message")
@@ -21,6 +21,9 @@ public class Example {
     @SerializedName("city")
     @Expose
     private City city;
+
+    public Example() {
+    }
 
     public String getCod() {
         return cod;
