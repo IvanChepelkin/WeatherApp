@@ -7,7 +7,8 @@ import retrofit2.http.GET;
 import retrofit2.http.Query;
 
 public interface EndPoints {
-    @GET("/data/2.5/forecast?&units=metric&cnt=7&appid=f3f2763fe63803beef4851d6365c83bc")
+    // 1 деление cnt = 3 ч.
+    @GET("/data/2.5/forecast?&units=metric&cnt=168&appid=f3f2763fe63803beef4851d6365c83bc")
     Flowable<Example>getWeatherFromServer(
             @Query("q") String city);
 }

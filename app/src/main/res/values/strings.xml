@@ -2,7 +2,6 @@
     <string name="app_name">WeatherApp</string>
     <string name="ok">ok</string>
 
-    <!-- Put your own APP ID here -->
     <string name="open_weather_maps_app_id">11111</string>
 
     <string name="weather_sunny">&#xf00d;</string>

@@ -51,13 +51,16 @@ public class Presenter extends MvpPresenter<WeatherView> implements Subscriber<E
         List <ModelView> listWeather = new ArrayList<>();
 
         for (int i=0; i < example.getList().size(); i++) {
-            listWeather.add(new ModelView(example.getCity().getName(),
-                    example.getList().get(i).getDtTxt(),
-                    setIconWeather(example.getList().get(i).getWeather().get(0).getId()),
-                    example.getList().get(i).getMain().getHumidity(),
-                    example.getList().get(i).getMain().getPressure(),
-                    example.getList().get(i).getMain().getTemp()
-            ));
+            //добавляем прогноз только раз за 1 день
+            if (i == 0 || i % 8 == 0) {
+                listWeather.add(new ModelView(example.getCity().getName(),
+                        example.getList().get(i).getDtTxt(),
+                        setIconWeather(example.getList().get(i).getWeather().get(0).getId()),
+                        example.getList().get(i).getMain().getHumidity(),
+                        example.getList().get(i).getMain().getPressure(),
+                        example.getList().get(i).getMain().getTemp()
+                ));
+            }
         }
 
         getViewState().setWeatherData(listWeather);
