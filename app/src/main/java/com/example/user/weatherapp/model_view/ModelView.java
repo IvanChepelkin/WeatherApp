@@ -18,8 +18,6 @@ public class ModelView {
         this.press = press;
         this.temp = temp;
 
-
-
     }
 
     public String getCityForView() {
@@ -30,7 +28,7 @@ public class ModelView {
         return dat;
     }
 
-    public int getIdForView() {
+    public int getIdForIcon() {
         return id;
     }
 
@@ -45,8 +43,5 @@ public class ModelView {
     public float getTempForView() {
         return temp;
     }
-
-
-
 
 }

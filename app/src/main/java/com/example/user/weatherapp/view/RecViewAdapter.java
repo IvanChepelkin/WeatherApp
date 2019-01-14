@@ -41,7 +41,8 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.RecViewH
         recViewHolder.dat.setText(dat);
 
         recViewHolder.weather_icon.setTypeface(typeWeather);
-        recViewHolder.weather_icon.setText(R.string.weather_cloudy);
+        recViewHolder.weather_icon.setText(listWeather.get(i).getIdForIcon());
+
         recViewHolder.humidity.setText(humi);
         recViewHolder.press.setText(press);
         recViewHolder.temp.setText(temper);
@@ -55,13 +56,13 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.RecViewH
 
 
     class RecViewHolder extends RecyclerView.ViewHolder {
+
         private TextView city;
         private TextView dat;
         private TextView weather_icon;
         private TextView humidity;
         private TextView press;
         private TextView temp;
-
 
         private RecViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -71,7 +72,6 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.RecViewH
             humidity = itemView.findViewById(R.id.humidity);
             press = itemView.findViewById(R.id.press);
             temp = itemView.findViewById(R.id.temp);
-
 
         }
     }

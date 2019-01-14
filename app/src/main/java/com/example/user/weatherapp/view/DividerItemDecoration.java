@@ -9,11 +9,11 @@ import android.view.View;
 
 import com.example.user.weatherapp.R;
 
-public class DividerItemDecoration extends RecyclerView.ItemDecoration{
+public class DividerItemDecoration extends RecyclerView.ItemDecoration {
     private Drawable mDivider;
 
     public DividerItemDecoration(Context context) {
-        mDivider = context.getResources().getDrawable(R.drawable.items_divider);;
+        mDivider = context.getResources().getDrawable(R.drawable.items_divider);
     }
 
     public void onDrawOver(Canvas c, RecyclerView parent, RecyclerView.State state) {
