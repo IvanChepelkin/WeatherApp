@@ -14,7 +14,9 @@ public class NetApiClient {
     }
 
     // возвр объект с  методами для выхода в сеть
-    private EndPoints netApi = new ServiceGenerator().createService(EndPoints.class);
+
+    UserComponent daggerUserComponent = DaggerUserComponent.builder().build();
+    private UserApi netApi = daggerUserComponent.getUserApiService();
 
     private NetApiClient() {
     }
