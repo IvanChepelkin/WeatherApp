@@ -2,23 +2,18 @@ package com.example.user.weatherapp.rest;
 
 import com.example.user.weatherapp.model.Example;
 
+import javax.inject.Singleton;
+
 import io.reactivex.Flowable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
 public class NetApiClient {
-    private static final NetApiClient ourInstance = new NetApiClient();
-
-    public static NetApiClient getInstance() {
-        return ourInstance;
-    }
-
-    // возвр объект с  методами для выхода в сеть
 
     UserComponent daggerUserComponent = DaggerUserComponent.builder().build();
     private UserApi netApi = daggerUserComponent.getUserApiService();
 
-    private NetApiClient() {
+    public NetApiClient() {
     }
 
     public Flowable<Example> getWeather(String city) {

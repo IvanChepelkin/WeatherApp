@@ -16,6 +16,8 @@ import org.reactivestreams.Subscription;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Singleton;
+
 @InjectViewState
 public class Presenter extends MvpPresenter<WeatherView> implements Subscriber<Example> {
 
@@ -49,17 +51,18 @@ public class Presenter extends MvpPresenter<WeatherView> implements Subscriber<E
     public void loadData(String city) {
         getViewState().startLoad();
 
+        NetApiClient netApiClient = new NetApiClient();
+        netApiClient.getWeather(city).subscribe(this);
 
-
-        NetApiClient.getInstance().getWeather(city).subscribe(this);
+        //NetApiClient.getInstance().getWeather(city).subscribe(this);
 
 
     }
 
     public void setItems(Example example) {
-        List <ModelView> listWeather = new ArrayList<>();
+        List<ModelView> listWeather = new ArrayList<>();
 
-        for (int i=0; i < example.getList().size(); i++) {
+        for (int i = 0; i < example.getList().size(); i++) {
             //добавляем прогноз только раз за 1 день
             if (i == 0 || i % 8 == 0) {
                 listWeather.add(new ModelView(example.getCity().getName(),
@@ -75,25 +78,33 @@ public class Presenter extends MvpPresenter<WeatherView> implements Subscriber<E
         getViewState().setWeatherData(listWeather);
     }
 
-    public int setIconWeather (int id){
+    public int setIconWeather(int id) {
 
         int idIcon = 0;
-        int count = id/100;
+        int count = id / 100;
 
-        switch (count){
-            case 2 : idIcon =  R.string.weather_thunder;
+        switch (count) {
+            case 2:
+                idIcon = R.string.weather_thunder;
                 break;
-            case 3 : idIcon =  R.string.weather_drizzle;
+            case 3:
+                idIcon = R.string.weather_drizzle;
                 break;
-            case 5 : idIcon =  R.string.weather_rainy;
+            case 5:
+                idIcon = R.string.weather_rainy;
                 break;
-            case 6 : idIcon =  R.string.weather_snowy;
+            case 6:
+                idIcon = R.string.weather_snowy;
                 break;
-            case 7 : idIcon =  R.string.weather_foggy;
+            case 7:
+                idIcon = R.string.weather_foggy;
                 break;
-            case 8 : idIcon =  R.string.weather_cloudy;
+            case 8:
+                idIcon = R.string.weather_cloudy;
                 break;
         }
         return idIcon;
     }
+
+
 }
