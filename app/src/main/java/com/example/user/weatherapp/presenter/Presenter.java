@@ -6,17 +6,12 @@ import com.example.user.weatherapp.R;
 import com.example.user.weatherapp.model.Example;
 import com.example.user.weatherapp.model_view.ModelView;
 import com.example.user.weatherapp.rest.NetApiClient;
-import com.example.user.weatherapp.rest.UserComponent;
-import com.example.user.weatherapp.rest.DaggerUserComponent;
-import com.example.user.weatherapp.rest.UserApi;
 
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.inject.Singleton;
 
 @InjectViewState
 public class Presenter extends MvpPresenter<WeatherView> implements Subscriber<Example> {
